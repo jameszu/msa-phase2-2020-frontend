@@ -1,15 +1,17 @@
-const API_BASE_URL = "https://localhost:44345/index.html" ;
-
+const API_BASE_URL = "https://localhost:44345/api" ;
+const POLL_API_URL = API_BASE_URL + "/poll"
+const USER_API_URL = API_BASE_URL + "/user"
 const CANVAS_API_URL = API_BASE_URL + "Canvas/";
 
-export const getArray = async () =>
+export const getName = async () =>
 {
-    const response = await fetch(CANVAS_API_URL + "GetCanvas",
+    const response = await fetch(USER_API_URL,
     {
         headers: 
         {
             Accept: "application/json",
         },
+        method: "GET"
     }).then((res) => res.json()).then(res => JSON.parse(res));
     return response;
 }
